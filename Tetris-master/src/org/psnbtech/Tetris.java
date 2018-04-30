@@ -437,7 +437,8 @@ public class Tetris extends JFrame {
 		this.gameSpeed = 1.0f;
 		this.nextType = TileType.values()[random.nextInt(TYPE_COUNT)];
 		this.isNewGame = false;
-		this.isGameOver = false;		
+		this.isGameOver = false;
+		this.holdType = null;
 		board.clear();
 		board2.clear();
 		logicTimer.reset();
