@@ -147,8 +147,12 @@ public class SidePanel extends JPanel {
 		 * Draw the next piece preview box.
 		 */
 		g.setFont(LARGE_FONT);
-		g.drawString("Next Piece:", SMALL_INSET, 70);
-		g.drawRect(SQUARE_CENTER_X - SQUARE_SIZE, SQUARE_CENTER_Y - SQUARE_SIZE, SQUARE_SIZE * 2, SQUARE_SIZE * 2);
+		g.drawString("Next:", SMALL_INSET, 20);
+		g.drawRect(SQUARE_CENTER_X - SQUARE_SIZE - 50, SQUARE_CENTER_Y - SQUARE_SIZE, SQUARE_SIZE * 2, SQUARE_SIZE * 2);
+		
+		g.setFont(LARGE_FONT);
+		g.drawString("Hold:", SMALL_INSET+120, 20);
+		g.drawRect(SQUARE_CENTER_X - SQUARE_SIZE + 70, SQUARE_CENTER_Y - SQUARE_SIZE, SQUARE_SIZE * 2, SQUARE_SIZE * 2);
 		
 		/*
 		 * Draw a preview of the next piece that will be spawned. The code is pretty much
@@ -156,6 +160,7 @@ public class SidePanel extends JPanel {
 		 * than constrained to a grid.
 		 */
 		TileType type = tetris.getNextPieceType();
+		TileType hold = tetris.getHoldPieceType();
 		if(!tetris.isGameOver() && type != null) {
 			/*
 			 * Get the size properties of the current piece.
@@ -163,6 +168,7 @@ public class SidePanel extends JPanel {
 			int cols = type.getCols();
 			int rows = type.getRows();
 			int dimension = type.getDimension();
+			
 		
 			/*
 			 * Calculate the top left corner (origin) of the piece.
@@ -176,6 +182,8 @@ public class SidePanel extends JPanel {
 			 */
 			int top = type.getTopInset(0);
 			int left = type.getLeftInset(0);
+			
+			
 		
 			/*
 			 * Loop through the piece and draw it's tiles onto the preview.
@@ -183,7 +191,27 @@ public class SidePanel extends JPanel {
 			for(int row = 0; row < dimension; row++) {
 				for(int col = 0; col < dimension; col++) {
 					if(type.isTile(col, row, 0)) {
-						drawTile(type, startX + ((col - left) * TILE_SIZE), startY + ((row - top) * TILE_SIZE), g);
+						drawTile(type, startX + ((col - left) * TILE_SIZE) - 50, startY + ((row - top) * TILE_SIZE), g);
+					}
+				}
+			}
+			
+			if (hold != null)
+			{
+				int col2 = hold.getCols();
+				int row2 = hold.getRows();
+				int dimension2 = hold.getDimension();
+				int startXX = (SQUARE_CENTER_X - (col2 * TILE_SIZE / 2));
+				int startYY = (SQUARE_CENTER_Y - (row2 * TILE_SIZE / 2));
+				int top2 = hold.getTopInset(0);
+				int left2 = hold.getLeftInset(0);
+				
+				for (int row = 0; row < dimension2; row++)
+				{
+					for (int col = 0; col < dimension2; col++)
+					{
+						if(hold.isTile(col, row, 0))
+							drawTile(hold, startXX + ((col - left2) * TILE_SIZE) + 70, startYY + ((row - top2) * TILE_SIZE), g);
 					}
 				}
 			}

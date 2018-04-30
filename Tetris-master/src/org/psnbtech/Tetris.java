@@ -581,6 +581,14 @@ public class Tetris extends JFrame {
 	}
 	
 	/**
+	 * Gets the hold type of piece.
+	 * @return The piece type.
+	 */
+	public TileType getHoldPieceType() {
+		return holdType;
+	}
+	
+	/**
 	 * Gets the column of the current piece.
 	 * @return The column.
 	 */
