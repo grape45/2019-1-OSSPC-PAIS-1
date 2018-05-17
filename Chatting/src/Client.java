@@ -11,14 +11,14 @@ public class Client {
 
 	public static void main(String[] arg)
     {
-        Socket socket = null;            //Server¿Í Åë½ÅÇÏ±â À§ÇÑ Socket
-        BufferedReader in = null;        //Server·ÎºÎÅÍ µ¥ÀÌÅÍ¸¦ ÀĞ¾îµéÀÌ±â À§ÇÑ ÀÔ·Â½ºÆ®¸²
-        BufferedReader in2 = null;        //Å°º¸µå·ÎºÎÅÍ ÀĞ¾îµéÀÌ±â À§ÇÑ ÀÔ·Â½ºÆ®¸²
-        PrintWriter out = null;            //¼­¹ö·Î ³»º¸³»±â À§ÇÑ Ãâ·Â ½ºÆ®¸²
+        Socket socket = null;            //Serverì™€ í†µì‹ í•˜ê¸° ìœ„í•œ Socket
+        BufferedReader in = null;        //Serverë¡œë¶€í„° ë°ì´í„°ë¥¼ ì½ì–´ë“¤ì´ê¸° ìœ„í•œ ì…ë ¥ìŠ¤íŠ¸ë¦¼
+        BufferedReader in2 = null;        //í‚¤ë³´ë“œë¡œë¶€í„° ì½ì–´ë“¤ì´ê¸° ìœ„í•œ ì…ë ¥ìŠ¤íŠ¸ë¦¼
+        PrintWriter out = null;            //ì„œë²„ë¡œ ë‚´ë³´ë‚´ê¸° ìœ„í•œ ì¶œë ¥ ìŠ¤íŠ¸ë¦¼
         InetAddress ia = null;
         try {
-            ia = InetAddress.getByName("¼­¹ö ÁÖ¼Ò ÀÔ·Â");    //¼­¹ö·Î Á¢¼Ó
-            socket = new Socket(ia,¼­¹ö°¡ ¿­¾î³õÀº Æ÷Æ® ÀÔ·Â);
+            ia = InetAddress.getByName("ì„œë²„ ì£¼ì†Œ ì…ë ¥");    //ì„œë²„ë¡œ ì ‘ì†
+            socket = new Socket(ia,ì„œë²„ê°€ ì—´ì–´ë†“ì€ í¬íŠ¸ ì…ë ¥);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             in2 = new BufferedReader(new InputStreamReader(System.in));
             out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
@@ -27,13 +27,13 @@ public class Client {
         }catch(IOException e) {}
         
         try {
-            System.out.print("¼­¹ö·Î º¸³¾ ¸Ş¼¼Á¦ : ");
-            String data = in2.readLine();            //Å°º¸µå·ÎºÎÅÍ ÀÔ·Â
-            out.println(data);                        //¼­¹ö·Î µ¥ÀÌÅÍ Àü¼Û
+            System.out.print("ì„œë²„ë¡œ ë³´ë‚¼ ë©”ì„¸ : ");
+            String data = in2.readLine();            //í‚¤ë³´ë“œë¡œë¶€í„° ì…ë ¥
+            out.println(data);                        //ì„œë²„ë¡œ ë°ì´í„° ì „ì†¡
             out.flush();
  
-            String str2 = in.readLine();            //¼­¹ö·ÎºÎÅÍ µÇµ¹¾Æ¿À´Â µ¥ÀÌÅÍ ÀĞ¾îµéÀÓ
-            System.out.println("¼­¹ö·ÎºÎÅÍ µÇµ¹¾Æ¿Â ¸Ş¼¼Áö : " + str2);
+            String str2 = in.readLine();            //ì„œë²„ë¡œë¶€í„° ë˜ëŒì•„ì˜¤ëŠ” ë°ì´í„° ì½ì–´ë“¤ì„
+            System.out.println("ì„œë²„ë¡œë¶€í„° ë˜ëŒì•„ì˜¨ ë©”ì„¸ì§€ : " + str2);
             socket.close();
             
         }catch(IOException e) {}
