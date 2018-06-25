@@ -15,3 +15,18 @@ Windows / Eclipse
 1. Tetris with AI, using genetic algorithm
 
 2. multiplay tetris
+
+3. support user customize keys
+
+## How to run
+1. Download Source
+
+2. run elipse, then add to project
+
+3. open com.ok.main.Main.java and run
+
+## Demo movie
+https://ek2.asuscomm.com:3211/sharing/TaoTm52bE
+
+## question
+### ek2rlstk@dongguk.edu
