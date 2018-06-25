@@ -1,5 +1,11 @@
 # 2018-OSSP-No6
+# Tetris
 
-## Tetris
+## team members
+2014112054 윤진호
+2014112077 김법종
+2016112142 최현수
+2016112114 좌민경
 
-under development
+##
+
