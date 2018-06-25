@@ -12,4 +12,6 @@ Windows / Eclipse
 (maybe works on linux)
 
 ## This Tetris is...
-Ai Game
+1. Tetris with AI, using genetic algorithm
+
+2. multiplay tetris
