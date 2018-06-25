@@ -21,7 +21,7 @@ Windows / Eclipse
 ## How to run
 1. Download Source
 
-2. run elipse, then add to project
+2. run eclipse, then add to project
 
 3. open com.ok.main.Main.java and run
 
